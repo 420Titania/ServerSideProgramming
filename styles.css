@@ -6,6 +6,10 @@ body {
     z-index: -1;
   }
 
+body::-webkit-scrollbar {
+  display:none;
+}
+
 .parisienne-regular {
     font-family: "Parisienne", cursive;
     font-weight: 400;
