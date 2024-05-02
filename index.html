@@ -13,12 +13,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
 </head>
     <body>
-        <div class="topnav">
+        <div class="topnav" id="topnav">
                 <a href="/points.html">Points</a>
                 <a href="/order.html">Order</a>
-                <a href="#popular">Popular</a>
-                <a href="#about">About</a>
-                <a class="active" href="#home">Home</a>  
+                <a href="#popular" id="section3">Popular</a>
+                <a href="#about" id="section2">About</a>
+                <a href="#home" id="section1">Home</a>  
         </div>
         <div class="home" id="home">
             <head1>Welcome to Coffee Shop</head1>
@@ -30,5 +30,42 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas  dictum erat in aliquam. Class aptent taciti sociosqu ad litora torquent  per conubia nostra, per inceptos himenaeos. Maecenas non tincidunt  felis. Aliquam erat volutpat. Duis dolor nisi, porta eget vulputate  pharetra, auctor ac nunc. Quisque elit nisl, tempus non tincidunt.</p>
             </div>
         </div>
+        <div class="popular" id="popular">
+            <div style="margin-left: 30px">
+                <head2>Freaky</head2>
+            </div>
+        </div>
+
+
+
+
+        
+        <script>
+        const divs = document.querySelectorAll('.home, .about, .popular');
+
+        const navbar = document.getElementById('topnav');
+
+        window.addEventListener('scroll', () => {
+  
+        divs.forEach((div) => {
+          const divTop = div.offsetTop;
+          const divHeight = div.clientHeight;
+          const scrollPos = window.scrollY;
+
+          //offset by 15 because navbar
+        if (scrollPos + 15 >= divTop && scrollPos < divTop + divHeight) {
+        navbar.querySelectorAll('a').forEach((link) => {
+          link.classList.remove('active');
+        });
+
+        const correspondingLink = navbar.querySelector(`a[href="#${div.id}"]`);
+
+        if (correspondingLink) {
+            correspondingLink.classList.add('active');
+        }
+    }
+  });
+});
+        </script>
     </body>
 </html>

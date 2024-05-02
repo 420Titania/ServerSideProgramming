@@ -65,6 +65,14 @@ p {
     padding: 100px;
 }
 
+.popular {
+  background-color: #997C5B;
+  margin: -7px -10px;
+  height: 959px;
+  vertical-align: middle;
+  padding: 100px;
+}
+
 .topnav {
   height: 55px;
   background-color: #594141;
