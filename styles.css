@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     background-image: url('back.jpeg');
     background-repeat: no-repeat;
@@ -56,7 +60,7 @@ p {
 .about {
     background-color: #bfb39b;
     margin: -7px -10px;
-    height: 425px;
+    height: 460px;
     vertical-align: middle;
     padding: 100px;
 }
