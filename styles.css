@@ -102,18 +102,18 @@ p {
 
 .popular {
   background-color: #997C5B;
-  height: 600px;
+  height: 800px;
 }
 
 .popular-title {
-  height: 20%;
+  height: 30%;
   display: flex; /* Use flexbox layout */
   justify-content: center; /* Horizontally center the contents */
   align-items: center; /* Vertically center the contents */
 }
 
 .popular-content{
-  height: 60%;
+  height: 50%;
   display: flex; /* Use flexbox layout */
   justify-content: center; /* Horizontally center the contents */
   align-items: center; /* Vertically center the contents */
