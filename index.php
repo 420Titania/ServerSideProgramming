@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Project Cafe</title>
+    <title>Pandemonium Coffee</title>
     <link rel="stylesheet" href="styles.css">
     <!--parisienne-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+    <script src="header.js" defer></script>
 </head>
     <body>
         <!--Top Navigation Bar. It stays on the spot.-->
@@ -24,7 +25,7 @@
 
         <!--The Welcome Page. The Background remains still-->
         <div class="home" id="home">
-            <head1>Welcome to Coffee Shop</head1>
+            <head1>Pandemonium Coffee</head1>
         </div>
 
         <!--The About us page. There wil be images on the right side. Soon. (From Titan)-->
@@ -84,37 +85,5 @@
                 </button>
             </div>
         </div>
-
-
-
-
-        
-        <script>
-        const divs = document.querySelectorAll('.home, .about, .popular');
-
-        const navbar = document.getElementById('topnav');
-
-        window.addEventListener('scroll', () => {
-  
-        divs.forEach((div) => {
-          const divTop = div.offsetTop;
-          const divHeight = div.clientHeight;
-          const scrollPos = window.scrollY;
-
-          //offset by 15 because navbar
-        if (scrollPos + 15 >= divTop && scrollPos < divTop + divHeight) {
-        navbar.querySelectorAll('a').forEach((link) => {
-          link.classList.remove('active');
-        });
-
-        const correspondingLink = navbar.querySelector(`a[href="#${div.id}"]`);
-
-        if (correspondingLink) {
-            correspondingLink.classList.add('active');
-        }
-    }
-  });
-});
-        </script>
     </body>
 </html>

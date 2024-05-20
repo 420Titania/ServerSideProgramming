@@ -181,3 +181,39 @@ p {
   text-align: center;
   color: #000;
 }
+
+.wholepage {
+  background-color: #bfb39b;
+  height: 800px;
+}
+
+.title {
+  height: 20%;
+  display: flex; /* Use flexbox layout */
+  justify-content: center; /* Horizontally center the contents */
+  align-items: center; /* Vertically center the contents */
+  margin-top:20px;
+}
+
+.menu{
+  height: 70%;
+  display: flex; /* Use flexbox layout */
+  justify-content: center; /* Horizontally center the contents */
+  align-items: flex-start; /* Vertically center the contents */
+  gap: 5%;
+  background-color: #ffffff;
+  padding:15px;
+  margin: 0px 10px;
+  border-radius: 45px;
+}
+
+.points{
+  height: 70%;
+  display: flex; /* Use flexbox layout */
+  justify-content: center; /* Horizontally center the contents */
+  align-items: flex-start; /* Vertically center the contents */
+  gap: 5%;
+  padding:15px;
+  margin: 0px 10px;
+  text-align: center;
+}
