@@ -102,7 +102,7 @@ p {
 
 .popular {
   background-color: #997C5B;
-  height: 800px;
+  height: 850px;
 }
 
 .popular-title {
@@ -118,15 +118,17 @@ p {
   justify-content: center; /* Horizontally center the contents */
   align-items: center; /* Vertically center the contents */
   gap: 5%;
+  /* margin-top:-15px; */
 }
 
 .popular-card {
   border-radius: 45px;
   padding: 10px;
   width: 250px;
-  height: 300px;
+  height: 440px;
   background-color: white;
   overflow: hidden;
+  margin-top:-50px;
 }
 
 .popular-image {
@@ -168,6 +170,7 @@ p {
   display: flex; /* Use flexbox layout */
   justify-content: center; /* Horizontally center the contents */
   align-items: center; /* Vertically center the contents */
+  margin-top: 30px;
 }
 
 .popular-button{
