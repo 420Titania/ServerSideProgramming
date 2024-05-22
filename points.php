@@ -16,8 +16,8 @@
         <div class="topnav" id="topnav">
                 <a href="points.php" class="active">Points</a>
                 <a href="order.php">Order</a>
-                <a href="#popular" id="section3">Popular</a>
-                <a href="#about" id="section2">About</a>
+                <a href="index.php#popular" id="section3">Popular</a>
+                <a href="index.php#about" id="section2">About</a>
                 <a href="index.php" id="section1">Home</a>  
         </div>
 
