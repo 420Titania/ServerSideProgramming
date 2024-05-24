@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Now</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--parisienne-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <!--pathway gothic one-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+    <style>
+        input {
+            border: none;
+            text-align: center; 
+            color:white;          
+            font-size: 32px;
+            width:37.5%;
+            background-color: #967435;
+        }
+        input:focus {
+            border:none;
+            outline:none;
+            background-color: #c59844;
+        }
+    </style>
+</head>
+    <body>
+        <div class="topnav" id="topnav">
+                <a href="points.php" class="active">Points</a>
+                <a href="order.php">Order</a>
+                <a href="index.php#popular" id="section3">Popular</a>
+                <a href="index.php#about" id="section2">About</a>
+                <a href="index.php" id="section1">Home</a>  
+        </div>
+
+
+        <!--Whole page hasn't even started yet. Will work on it soon. And probably redesign it overall.-->
+        <div class="wholepage" id="order">
+
+            <div class="title">
+            <head2>Points</head2>
+            </div>
+            <div class="points">
+            <p>Enter your phone number:</p>
+            <input type="text" id="searchInput" name="searchInput" onkeypress="return isNumberKey(event)" maxlength="13">
+            <p>You have<br>
+                <span style="font-size: 70px;" id="number"></span>
+                <span style="font-size: 15px">points</span><br>
+                <span style="font-size:28px;" id="flavor"></span>
+            </p>
+            </div>
+        </div>
+    </body>
+    <script>
+
+            var points = 0;
+
+            function isNumberKey(evt) {
+                var charCode = (evt.which) ? evt.which : evt.keyCode
+                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                    return false;
+                return true;
+            }
+
+            document.getElementById('number').innerHTML = points;
+
+            if (points == 0) {
+                document.getElementById('flavor').innerHTML = 'get rekt tbh';
+            }
+
+            document.getElementById("searchInput").addEventListener("input", function() {
+
+            event.preventDefault();
+            
+            $.ajax({
+            type: "POST",
+            url: './scripts/search.php',
+            data: {
+                query : $("#searchInput").val()
+                },
+            dataType: 'json',
+            encode: true,
+            success: function(data) {
+                        if (data === 'ERR') {
+                            points = 0;
+                    } else {
+                        points = data;
+                    }
+            },
+            error: function(jqXHR, string, errorThrown) {
+                document.getElementById('searchInput').innerHTML = 'An error occurred! Server said this:<br>' + errorThrown;
+            }
+            })
+
+        });
+
+    </script>
+</html>

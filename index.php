@@ -16,7 +16,7 @@
     <body>
         <!--Top Navigation Bar. It stays on the spot.-->
         <div class="topnav" id="topnav">
-                <a href="/points.html">Points</a>
+                <a href="./points.html">Points</a>
                 <a href="./order.php">Order</a>
                 <a href="#popular" id="section3">Popular</a>
                 <a href="#about" id="section2">About</a>
@@ -47,7 +47,7 @@
                 <!--Using PHP to get the info from SQL (From Titan)-->
                 <?php
                     //Connects to Database
-                    require_once('config.php');
+                    require_once('scripts/config.php');
 
                     //Selects from Database (From Titan)
                     $sql = "SELECT name, image_url, price FROM menu_items ORDER BY order_count DESC LIMIT 3";
