@@ -68,32 +68,35 @@
 
             document.getElementById('number').innerHTML = points;
 
-            if (points == 0) {
-                document.getElementById('flavor').innerHTML = 'get rekt tbh';
-            }
-
             document.getElementById("searchInput").addEventListener("input", function() {
 
             event.preventDefault();
             
             $.ajax({
             type: "POST",
-            url: './scripts/search.php',
+            url: 'scripts/search.php',
             data: {
                 query : $("#searchInput").val()
                 },
             dataType: 'json',
             encode: true,
-            success: function(data) {
-                        if (data === 'ERR') {
-                            points = 0;
+            success: function(response) {
+                        if (response.success) {
+                            points = response.user;
                     } else {
-                        points = data;
+                            points = 0;
+                            console.log(response.error)
+                    }
+                    document.getElementById('number').innerHTML = points;
+                    if (points == 0) {
+                    document.getElementById('flavor').innerHTML = 'get rekt tbh';
+                    } else {
+                        document.getElementById('flavor').style.display = 'none'
                     }
             },
             error: function(jqXHR, string, errorThrown) {
                 document.getElementById('searchInput').innerHTML = 'An error occurred! Server said this:<br>' + errorThrown;
-            }
+            },
             })
 
         });

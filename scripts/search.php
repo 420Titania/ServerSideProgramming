@@ -2,6 +2,8 @@
 
 header('Content-Type: application/json');
 
+$response = array();
+
 require_once('config.php');
 
 $phone = $_POST['query'];
@@ -12,15 +14,13 @@ $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
-if (empty($user)) {
-    echo json_encode('ERR'); //newuser
-    $stmt1->close();
-    $conn->close();
-    die();
-} else {
-    echo json_encode($user['pts']); //login
-}
 
+if ($user === null) {
+    $response['error'] = "Query returned empty, this is not an error";
+} else {
+    $response += ['success' => true, 'user' => $user['pts']];
+}
+echo json_encode($response);
 $stmt->close();
 $conn->close();
 exit();
