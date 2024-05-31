@@ -30,7 +30,7 @@
 </head>
     <body>
         <div class="topnav" id="topnav">
-                <a href="points.php" class="active">Points</a>
+                <a href="points.html" class="active">Points</a>
                 <a href="order.php">Order</a>
                 <a href="index.php#popular" id="section3">Popular</a>
                 <a href="index.php#about" id="section2">About</a>
@@ -85,13 +85,12 @@
                             points = response.user;
                     } else {
                             points = 0;
-                            console.log(response.error)
                     }
                     document.getElementById('number').innerHTML = points;
                     if (points == 0) {
                     document.getElementById('flavor').innerHTML = 'get rekt tbh';
                     } else {
-                        document.getElementById('flavor').style.display = 'none'
+                        document.getElementById('flavor').innerHTML = ''
                     }
             },
             error: function(jqXHR, string, errorThrown) {
