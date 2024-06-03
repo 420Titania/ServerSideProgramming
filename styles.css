@@ -195,12 +195,27 @@ p {
   height: 800px;
 }
 
+.menu-page{
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: flex-start; /* Align items at the start of the cross axis */
+}
+
 .title {
   height: 20%;
   display: flex; /* Use flexbox layout */
   justify-content: center; /* Horizontally center the contents */
   align-items: center; /* Vertically center the contents */
   margin-top:20px;
+  padding-top: 20px;
+}
+
+.menu-container {
+  display: inline-block;
+  width: calc(33.33% - 100px); /* Adjust width according to your layout */
+  margin: 0 10px;
+  vertical-align: top;
+  text-align: center;
 }
 
 .menu{
