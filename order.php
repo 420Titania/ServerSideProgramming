@@ -14,7 +14,7 @@
 </head>
     <body>
         <div class="topnav" id="topnav">
-                <a href="points.php">Points</a>
+                <a href="points.html">Points</a>
                 <a href="order.php" class="active">Order</a>
                 <a href="index.php#popular" id="section3">Popular</a>
                 <a href="index.php#about" id="section2">About</a>
