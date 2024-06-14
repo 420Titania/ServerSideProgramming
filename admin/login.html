@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <style>
+            h2 {
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                text-align: center;
+            }
+            form {
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <h2>Admin Panel</h2>
+    <form action="login.php" target="_self" method="POST">
+        <label for="name">Username:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="pword">Password:</label><br>
+        <input type="password" id="pword" name="pword" required><br>
+        <br>
+        <input type="submit" value="Login">
+        <br><br>
+    </form>
+
+</html>
