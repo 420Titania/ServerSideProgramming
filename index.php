@@ -50,7 +50,7 @@
                     require_once('scripts/config.php');
 
                     //Selects from Database (From Titan)
-                    $sql = "SELECT name, image_url, price FROM menu_items ORDER BY order_count DESC LIMIT 3";
+                    $sql = "SELECT name, img, price FROM menu ORDER BY score DESC LIMIT 3";
                     $result = $conn->query($sql);
     
                     $items = array();
@@ -63,7 +63,7 @@
                         echo '<div class="popular-card" id="popular-card">';
                         echo '<div class="popular-image" id="popular-image">';
                         if (isset($items[$i])) {
-                            echo '<img src="' . $items[$i]["image_url"] . '" alt="' . $items[$i]["name"] . '">';
+                            echo '<img src="' . $items[$i]["img"] . '" alt="' . $items[$i]["name"] . '">';
                         }
                         echo '</div>';
                         echo '<div class="popular-text-container" id="popular-text-container">';

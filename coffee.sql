@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 20, 2024 at 06:04 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: localhost
+-- Generation Time: Jun 14, 2024 at 08:38 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,50 +24,66 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu_items`
+-- Table structure for table `admins`
 --
 
-CREATE TABLE `menu_items` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `price` int(11) NOT NULL,
-  `menu_type` varchar(50) DEFAULT NULL,
-  `image_url` varchar(255) NOT NULL,
-  `order_count` int(11) DEFAULT 0,
-  `description` varchar(255) DEFAULT NULL,
-  `available` tinyint(1) DEFAULT 1,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+CREATE TABLE `admins` (
+  `id` int(16) NOT NULL,
+  `user` varchar(32) NOT NULL,
+  `pass` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `menu_items`
+-- Dumping data for table `admins`
 --
 
-INSERT INTO `menu_items` (`id`, `name`, `price`, `menu_type`, `image_url`, `order_count`, `description`, `available`, `created_at`, `updated_at`) VALUES
-(1, 'Amogus Nugget', 5000, 'food', 'https://cdn.discordapp.com/attachments/560104983010476032/1241955272810041344/image.png?ex=664c147b&is=664ac2fb&hm=ef17d50620175b3b9fd40b3d4d09d5eafa5686783abc6cf2a968d5550fe96e43&', 69, 'Among Us.', 1, '2024-05-20 03:27:23', '2024-05-20 03:27:23'),
-(2, 'Latte /w Optional Coffee', 20000, 'coffee', 'https://cdn.discordapp.com/attachments/560104983010476032/1241958377773469808/image.png?ex=664c175f&is=664ac5df&hm=fff80c43a0c05206eb5a503cca968371e7e36a934bb0564f13bf14c2d1b832ee&', 20, 'Fresh Latte served right out of the pot. Coffee is optional.', 1, '2024-05-20 03:40:45', '2024-05-20 03:41:12'),
-(3, 'Chocolate Lava Cake', 271000, 'food', 'https://cdn.discordapp.com/attachments/560104983010476032/1241958463127556136/image.png?ex=664c1774&is=664ac5f4&hm=94ddf921125dd8d8584b4a21e056b2a48f871f372bff3bac403e994f5e467724&', 0, 'A French dessert that consists of a chocolate cake with a liquid chocolate core. It is named for that molten center, and it is also known as mi-cuit au chocolat, chocolat coulant, chocolate lava cake, or simply lava cake.', 1, '2024-05-20 03:45:04', '2024-05-20 03:45:24');
+INSERT INTO `admins` (`id`, `user`, `pass`) VALUES
+(1, 'admin', '$2y$10$RbLnR5kEYnkIVTkQgplrO.ISFa4Sxyt8YAdYjT55WaqfTXqAc5dDO');
+
+-- --------------------------------------------------------
 
 --
--- Indexes for dumped tables
+-- Table structure for table `menu`
 --
 
---
--- Indexes for table `menu_items`
---
-ALTER TABLE `menu_items`
-  ADD PRIMARY KEY (`id`);
+CREATE TABLE `menu` (
+  `name` varchar(255) NOT NULL,
+  `price` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `img` varchar(256) NOT NULL DEFAULT 'https://untirta.ac.id/wp-content/uploads/2023/09/placeholder-16.png',
+  `score` int(32) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Dumping data for table `menu`
 --
 
+INSERT INTO `menu` (`name`, `price`, `type`, `img`, `score`) VALUES
+('Latte w/ Optional Coffee', '20000', 'coffee', 'https://i.imgur.com/svrSJcO.png', 64),
+('Espresso', '22000', 'coffee', 'https://untirta.ac.id/wp-content/uploads/2023/09/placeholder-16.png', 0),
+('Chocolate Lava Cake', '271000', 'food', 'https://i.imgur.com/RQmtqeu.png', 32),
+('Sweet Tea', '10000', 'noncoffee', 'https://untirta.ac.id/wp-content/uploads/2023/09/placeholder-16.png', 0),
+('Amogus Nugget', '5000', 'food', 'https://i.imgur.com/RufhjCz.png', 128),
+('Americano', '15000', 'coffee', 'https://untirta.ac.id/wp-content/uploads/2023/09/placeholder-16.png', 0);
+
+-- --------------------------------------------------------
+
 --
--- AUTO_INCREMENT for table `menu_items`
+-- Table structure for table `points`
 --
-ALTER TABLE `menu_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+CREATE TABLE `points` (
+  `phone` varchar(13) NOT NULL,
+  `pts` varchar(13) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `points`
+--
+
+INSERT INTO `points` (`phone`, `pts`) VALUES
+('80012345678', '100'),
+('82129485768', '46');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
