@@ -21,15 +21,15 @@ $user = $result->fetch_assoc();
 if ($user) {
 
 } else {
-    die("Invalid username");
+    die("Invalid username or password");
 }
 
-if ($user && password_verify($pword, $user['password'])) {
+if ($user && password_verify($pword, $user['pass'])) {
     $_SESSION['login'] = true;
     echo "Login success! Redirecting...";
     echo "<meta http-equiv='refresh' content='2;url=view_data.php'>";
 } else {
-    die("Invalid password");
+    die("Invalid username or password");
 }
 
 $stmt->close();

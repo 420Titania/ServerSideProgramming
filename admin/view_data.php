@@ -1,26 +1,14 @@
 <!DOCTYPE html>
 <head>
     <title>View Data</title>
-    <style>
-        a.button {
-            padding: 1px 6px;
-            border: 1px outset buttonborder;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            border-radius: 3px;
-            color: white;
-            background-color: green;
-            text-decoration: none;
-        }
-        table, th, td {
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            border: 1px solid;
-        }
-    </style>
+    <link rel="stylesheet" href="adminshared.css">
 </head>
 <body>
     <header>
         <a href="logout.php" class="button">Logout</a>
-        <a href="add_data.php" class="button">Add Data</a>
+        <a href="add_menu.php" class="button">Add Item</a>
+        <a href="add_phone.php" class="button">Add Number</a>
+        <a href="add_points.php" class="button">Add Points</a>
     </header>
 
 <?php
@@ -42,10 +30,11 @@ $result = mysqli_query($conn, $sql);
 
 echo '<br>
 <table>
+    <caption>Menu</caption>
     <tr>
-        <th>ID</th>
         <th>Name</th>
         <th>Price</th>
+        <th>Type</th>
     </tr>';
 
 
@@ -54,13 +43,37 @@ if (mysqli_num_rows($result) > 0) {
       echo '
       <tr>
           <td>'.$row['name'].'</td>
-          <td>'.$row['price'].'</td>
-          <td>$'.$row['type'].'</td>
+          <td>Rp. '.$row['price'].'</td>
+          <td>'.$row['type'].'</td>
       </tr>';
     }
   } else {
-    echo 'No data found';
+    echo 'No menu data';
   }
 
+  $sql2 = "SELECT * FROM points";
+  $result2 = mysqli_query($conn, $sql2);
+  
+  echo '
+  <table>
+  <br><br>
+  <caption>Registered Numbers</caption>
+      <tr>
+          <th>Number</th>
+          <th>Points</th>
+      </tr>';
+  
+  
+  if (mysqli_num_rows($result2) > 0) {
+      while($row2 = mysqli_fetch_assoc($result2)) {
+        echo '
+        <tr>
+            <td>'.$row2['phone'].'</td>
+            <td>'.$row2['pts'].'</td>
+        </tr>';
+      }
+    } else {
+      echo 'No phone data';
+    }
 
 ?>
