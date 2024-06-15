@@ -27,6 +27,6 @@ require_once('config.php');
     } else {
         echo "Something went wrong, the table has not been updated.<br>";
     }
-    $stmt->close;
-    $conn->close;
+    $stmt->close();
+    $conn->close();
     echo "<meta http-equiv='refresh' content='2;url=view_data.php'>";
